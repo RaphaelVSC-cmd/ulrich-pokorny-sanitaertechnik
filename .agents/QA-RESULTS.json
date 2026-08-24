@@ -1,0 +1,33 @@
+{
+  "project": "Ulrich Pokorny Sanitärtechnik",
+  "version": "3.1-motionsites",
+  "timestamp": "2026-08-23T06:38:00+02:00",
+  "overallStatus": "PASSED",
+  "summary": {
+    "totalChecks": 20,
+    "passed": 20,
+    "failed": 0
+  },
+  "tests": [
+    { "name": "Fluid Island Header (#mainNav)", "status": "PASSED", "details": "Floating Pill with live status badge and unified sticky behaviour" },
+    { "name": "Theme Switcher (#themeToggle)", "status": "PASSED", "details": "Dark/Light mode toggles data-theme attribute with CSS variables and localStorage persistence" },
+    { "name": "Single-X Morphing Hamburger", "status": "PASSED", "details": "CSS transform on 3 lines, no duplicate X button, body scroll locked on open" },
+    { "name": "Skip-to-Content Link", "status": "PASSED", "details": "First tag after body, jumps to #main-content with focus-visible" },
+    { "name": "Noise Overlay", "status": "PASSED", "details": "Fixed pointer-events-none noise overlay active" },
+    { "name": "Custom Cursor", "status": "PASSED", "details": "Blob with difference blend mode + follower scaling on interactive elements" },
+    { "name": "DSGVO Consent Banner", "status": "PASSED", "details": "localStorage consent key, blocks Google Maps iframe until accepted" },
+    { "name": "Google Maps data-src Blocking", "status": "PASSED", "details": "iframe uses data-src with fallback placeholder card until consent" },
+    { "name": "WhatsApp Widget", "status": "PASSED", "details": "Direct wa.me link with tel format 4984171918 and pulse animation" },
+    { "name": "Multi-Step Funnel Form", "status": "PASSED", "details": "3 Steps (Anliegen, Details, Kontaktdaten) with progress bar, honeypot, and Formspree action" },
+    { "name": "Sanitary Cost Calculator", "status": "PASSED", "details": "Range slider (4-25 m2) + options (teil/komplett/premium) with dynamic price calculation" },
+    { "name": "Sticky Card Stacking Effect", "status": "PASSED", "details": "GSAP ScrollTrigger scale effect on sticky competence cards" },
+    { "name": "Dual Horizontal Scroll Marquee", "status": "PASSED", "details": "Dual-direction track with continuous scroll integration" },
+    { "name": "Character Reveal Typography", "status": "PASSED", "details": "Char-by-char fill on scroll on company mission quote" },
+    { "name": "FAQ Accordion with ARIA", "status": "PASSED", "details": "aria-expanded, aria-controls, grid-template-rows animation and keyboard navigation" },
+    { "name": "Impressum (§ 5 TMG)", "status": "PASSED", "details": "Real company data (Ulrich Pokorny, Tulpenstraße 6, 85053 Ingolstadt, 0841 71918)" },
+    { "name": "Datenschutzerklärung (DSGVO Art. 13)", "status": "PASSED", "details": "Full legal text with Vercel, Formspree, Google Maps, Google Fonts, and BayLDA authority" },
+    { "name": "Mobile Sticky Bottom Bar", "status": "PASSED", "details": "Quick direct call, calculator, request, and route buttons on mobile" },
+    { "name": "Hero LCP Performance", "status": "PASSED", "details": "fetchpriority='high' and decoding='async' on hero image" },
+    { "name": "Schema.org JSON-LD", "status": "PASSED", "details": "Valid Graph with Plumber, OpeningHoursSpecification, FAQPage, and 5.0 Rating" }
+  ]
+}

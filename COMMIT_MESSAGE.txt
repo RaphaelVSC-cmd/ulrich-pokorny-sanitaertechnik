@@ -1,0 +1,18 @@
+feat(website): Ulrich Pokorny Sanitärtechnik – Modern UI Pro v3.1
+
+Design: Soft Structuralism & Ethereal Glass + Variante A + Dual Marquee & Card-Stacking & Char-Reveal
+Stack: HTML5, Tailwind, GSAP 3.12.5, Lenis 1.0.42, SplitType 0.3.4
+- Unified Fluid Island Navbar (kein Doppelheader) mit Status-Pill
+- Kinetic Typography (SplitType) + Staggered Load Animations
+- Scroll-Driven Dual Marquee (§ 16) für Sanitärfachbereiche
+- Sticky Card-Stacking (§ 15) für Kernkompetenzen (Bäder, Rohre, Notdienst)
+- Character-by-Character Text Reveal (§ 17) für das Meister-Leitbild
+- Interaktiver Sanitär- & Badrechner (§ 6) mit Richtwert-Berechnung
+- Multi-Step Funnel Kontaktformular (3 Schritte + Formspree + Honeypot)
+- DSGVO Consent-Banner + dynamische Google Maps data-src Entblockung
+- WhatsApp Floating Widget mit internationalem Tel-Format (4984171918)
+- Dark/Light Mode Toggle mit vollständigen CSS Tokens
+- Touchpad-safe (passive listener, smoothTouch: false)
+- Color contrast validated (WCAG 2.1 AA)
+- Hamburger: Single X-Mechanism (CSS Morphing)
+- 0 halluzinierte Daten (Tulpenstraße 6, Ingolstadt-Kothau, 0841 71918, 5.0 Rating)
