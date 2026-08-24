@@ -35,10 +35,11 @@ if (!prefersReducedMotion && typeof Lenis !== 'undefined') {
   // Lag-Smoothing auf 0 setzen: verhindert Verzögerungen bei Trackpad-Gesten
   gsap.ticker.lagSmoothing(0);
 
-  // Lenis-basierte Anker-Navigation
+  // Lenis-basierte Anker-Navigation (außer Modals)
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', (e) => {
       const targetId = anchor.getAttribute('href');
+      if (targetId === '#impressum' || targetId === '#datenschutz') return;
       if (targetId && targetId !== '#') {
         const targetEl = document.querySelector(targetId);
         if (targetEl) {
@@ -553,6 +554,9 @@ function openLegalModal(modalId) {
   modal.classList.add('open');
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
+  if (typeof lenis !== 'undefined' && lenis) {
+    lenis.stop();
+  }
   modal.querySelector('.legal-modal-close')?.focus();
 }
 
@@ -562,7 +566,12 @@ function closeLegalModal(modalId) {
   modal.classList.remove('open');
   modal.setAttribute('aria-hidden', 'true');
   const isMobileOpen = document.getElementById('mobileMenu')?.classList.contains('open');
-  if (!isMobileOpen) document.body.style.overflow = '';
+  if (!isMobileOpen) {
+    document.body.style.overflow = '';
+    if (typeof lenis !== 'undefined' && lenis) {
+      lenis.start();
+    }
+  }
 }
 
 function initLegalModals() {
