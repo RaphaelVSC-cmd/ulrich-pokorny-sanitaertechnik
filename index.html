@@ -1124,59 +1124,124 @@
           </ul>
         </div>
 
-      </div>
-
-      <!-- ─── RECHTLICHE SEKTIONEN: IMPRESSUM & DATENSCHUTZ (PFLICHT) ──────── -->
-      
-      <!-- IMPRESSUM TEMPLATE (§ 9 Business-Pro-Features) -->
-      <section id="impressum" class="pt-8 pb-6 border-t border-[var(--border)] text-xs text-[var(--fg-muted)]" aria-label="Impressum">
-        <h3 class="font-bold text-sm text-[var(--fg)] mb-2">Impressum</h3>
-        <p class="mb-2"><strong>Angaben gemäß § 5 TMG:</strong></p>
-        <address class="not-italic mb-2 leading-relaxed">
-          Ulrich Pokorny Sanitärtechnik<br>
-          Inhaber: Ulrich Pokorny<br>
-          Tulpenstraße 6<br>
-          85053 Ingolstadt-Kothau<br>
-          Deutschland
-        </address>
-        <p class="mb-2">
-          <strong>Kontakt:</strong><br>
-          Telefon: <a href="tel:+4984171918" class="text-cyan-400 hover:underline">0841 71918</a><br>
-          <!-- PLATZHALTER: USt-ID eintragen falls vorhanden -->
-          <!-- Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE... -->
-        </p>
-        <p class="mb-2 text-[11px] leading-relaxed">
-          <strong>EU-Streitschlichtung:</strong> Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="underline">https://ec.europa.eu/consumers/odr/</a>.<br>
-          <strong>Verbraucherstreitbeilegung:</strong> Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
-        </p>
-      </section>
-
-      <!-- DATENSCHUTZERKLÄRUNG TEMPLATE (§ 10 Business-Pro-Features) -->
-      <section id="datenschutz" class="pt-6 pb-6 border-t border-[var(--border)] text-xs text-[var(--fg-muted)]" aria-label="Datenschutzerklärung">
-        <h3 class="font-bold text-sm text-[var(--fg)] mb-2">Datenschutzerklärung</h3>
-        <p class="mb-2"><strong>1. Datenschutz auf einen Blick:</strong> Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Personenbezogene Daten werden vertraulich und entsprechend der gesetzlichen Vorschriften (DSGVO) behandelt.</p>
-        <p class="mb-2"><strong>2. Verantwortliche Stelle:</strong> Ulrich Pokorny, Tulpenstraße 6, 85053 Ingolstadt, Telefon: 0841 71918.</p>
-        <p class="mb-2"><strong>3. Datenerfassung auf dieser Website:</strong></p>
-        <ul class="list-disc pl-4 space-y-1 mb-2 text-[11px]">
-          <li><strong>Kontaktformular (Formspree):</strong> Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen angegebenen Kontaktdaten werden zwecks Bearbeitung der Anfrage verarbeitet. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</li>
-          <li><strong>Google Fonts:</strong> Diese Seite nutzt zur einheitlichen Darstellung Schriftarten von Google LLC. Beim Aufruf wird Ihre IP-Adresse übertragen. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</li>
-          <li><strong>Google Maps:</strong> Die Kartenfunktion wird erst nach Ihrer ausdrücklichen Zustimmung über unser Cookie-Banner geladen. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO.</li>
-          <li><strong>localStorage:</strong> Wir speichern ausschließlich rein technische Einstellungen (Dark/Light Mode & Cookie-Auswahl) lokal in Ihrem Browser.</li>
-        </ul>
-        <p class="text-[11px]"><strong>4. Ihre Rechte:</strong> Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft, Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten.</p>
-      </section>
-
-      <div class="pt-8 border-t border-[var(--border)] flex flex-col sm:flex-row items-center justify-between text-xs text-[var(--fg-muted)] gap-4">
-        <div>
-          © 2026 Ulrich Pokorny Sanitärtechnik · Alle Rechte vorbehalten.
-        </div>
-        <div>
-          Handwerksqualität aus Ingolstadt-Kothau
-        </div>
-      </div>
-
     </div>
   </footer>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- RECHTLICHE MODALS (IMPRESSUM & DATENSCHUTZ)               -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <!-- Impressum Modal -->
+  <div id="impressumModal" class="legal-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="impressumModalTitle">
+    <div class="legal-modal-card bento-shell">
+      <div class="bento-core p-6 sm:p-10 relative flex flex-col max-h-[85vh]">
+        <div class="flex items-center justify-between border-b border-[var(--border)] pb-4 mb-6 sticky top-0 bg-[var(--card-bg)] z-10">
+          <div class="flex items-center gap-2">
+            <span class="text-xl" aria-hidden="true">⚖️</span>
+            <h2 class="text-2xl font-bold text-[var(--fg)]" id="impressumModalTitle">Impressum</h2>
+          </div>
+          <button class="legal-modal-close" data-close-modal="impressumModal" aria-label="Impressum schließen">
+            <span aria-hidden="true">✕</span>
+          </button>
+        </div>
+        <div class="legal-modal-body overflow-y-auto pr-2 space-y-6 text-sm text-[var(--fg-muted)] leading-relaxed">
+          <div>
+            <h3 class="text-base font-bold text-[var(--fg)] mb-2">Angaben gemäß § 5 TMG</h3>
+            <address class="not-italic">
+              <strong>Ulrich Pokorny Sanitärtechnik</strong><br>
+              Inhaber: Ulrich Pokorny<br>
+              Tulpenstraße 6<br>
+              85053 Ingolstadt-Kothau<br>
+              Deutschland
+            </address>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-[var(--fg)] mb-2">Kontakt</h3>
+            <p>
+              Telefon: <a href="tel:+4984171918" class="underline text-cyan-400 font-semibold">0841 71918</a>
+            </p>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-[var(--fg)] mb-2">Berufsbezeichnung & Kammer</h3>
+            <p>
+              Berufsbezeichnung: Meisterbetrieb für Sanitär- und Heizungstechnik (verliehen in Deutschland)<br>
+              Zuständige Kammer: Handwerkskammer für München und Oberbayern<br>
+              Es gelten die berufsrechtlichen Regelungen der Handwerksordnung (HwO).
+            </p>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-[var(--fg)] mb-2">EU-Streitschlichtung & Verbraucherstreitbeilegung</h3>
+            <p>
+              Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
+              <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="underline text-cyan-400">https://ec.europa.eu/consumers/odr/</a>.<br>
+              Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-[var(--fg)] mb-2">Haftung für Inhalte und Links</h3>
+            <p>
+              Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Datenschutz Modal -->
+  <div id="datenschutzModal" class="legal-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="datenschutzModalTitle">
+    <div class="legal-modal-card bento-shell">
+      <div class="bento-core p-6 sm:p-10 relative flex flex-col max-h-[85vh]">
+        <div class="flex items-center justify-between border-b border-[var(--border)] pb-4 mb-6 sticky top-0 bg-[var(--card-bg)] z-10">
+          <div class="flex items-center gap-2">
+            <span class="text-xl" aria-hidden="true">🔒</span>
+            <h2 class="text-2xl font-bold text-[var(--fg)]" id="datenschutzModalTitle">Datenschutzerklärung</h2>
+          </div>
+          <button class="legal-modal-close" data-close-modal="datenschutzModal" aria-label="Datenschutzerklärung schließen">
+            <span aria-hidden="true">✕</span>
+          </button>
+        </div>
+        <div class="legal-modal-body overflow-y-auto pr-2 space-y-6 text-sm text-[var(--fg-muted)] leading-relaxed">
+          <div>
+            <h3 class="text-base font-bold text-[var(--fg)] mb-2">1. Datenschutz auf einen Blick</h3>
+            <p>
+              Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Personenbezogene Daten werden auf dieser Website nur im technisch notwendigen Umfang sowie zur Bearbeitung Ihrer Kontaktanfragen erhoben.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-[var(--fg)] mb-2">2. Verantwortliche Stelle</h3>
+            <address class="not-italic">
+              <strong>Ulrich Pokorny Sanitärtechnik</strong><br>
+              Inhaber: Ulrich Pokorny<br>
+              Tulpenstraße 6, 85053 Ingolstadt-Kothau<br>
+              Telefon: 0841 71918
+            </address>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-[var(--fg)] mb-2">3. Datenerfassung auf dieser Website</h3>
+            <h4 class="font-semibold text-[var(--fg)] mt-3 mb-1">Kontaktformular (Formspree)</h4>
+            <p>
+              Ihre Angaben aus dem Kontaktformular werden zwecks Bearbeitung der Anfrage über den Dienst Formspree verarbeitet. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.
+            </p>
+            <h4 class="font-semibold text-[var(--fg)] mt-3 mb-1">Google Fonts & Google Maps</h4>
+            <p>
+              Google Fonts dienen der einheitlichen Schriftendarstellung. Google Maps wird erst nach Ihrer ausdrücklichen Einwilligung im Cookie-Banner geladen (Art. 6 Abs. 1 lit. a DSGVO).
+            </p>
+            <h4 class="font-semibold text-[var(--fg)] mt-3 mb-1">Cookies & localStorage</h4>
+            <p>
+              Es werden ausschließlich technisch notwendige Browser-Speichereinträge (Theme-Auswahl und Consent-Status) genutzt.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-[var(--fg)] mb-2">4. Ihre Rechte</h3>
+            <p>
+              Sie haben jederzeit das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung, Sperrung oder Löschung Ihrer gespeicherten Daten.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ─── DSGVO CONSENT BANNER (§ 2 Business-Pro-Features) ─────────────────── -->
   <div id="consentBanner" class="consent-banner hidden" role="dialog" aria-live="polite" aria-label="Datenschutz- und Cookie-Einstellungen">

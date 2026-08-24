@@ -546,10 +546,62 @@ function initDSGVO() {
   });
 }
 
-// ─── 16. INITIALISIERUNG ────────────────────────────────────────────────────
+// ─── 16. RECHTLICHE MODALS (IMPRESSUM & DATENSCHUTZ) ────────────────────────
+function openLegalModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  modal.querySelector('.legal-modal-close')?.focus();
+}
+
+function closeLegalModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  const isMobileOpen = document.getElementById('mobileMenu')?.classList.contains('open');
+  if (!isMobileOpen) document.body.style.overflow = '';
+}
+
+function initLegalModals() {
+  document.querySelectorAll('a[href="#impressum"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      openLegalModal('impressumModal');
+    });
+  });
+  document.querySelectorAll('a[href="#datenschutz"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      openLegalModal('datenschutzModal');
+    });
+  });
+  document.querySelectorAll('[data-close-modal]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      closeLegalModal(btn.getAttribute('data-close-modal'));
+    });
+  });
+  document.querySelectorAll('.legal-modal-backdrop').forEach((backdrop) => {
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) closeLegalModal(backdrop.id);
+    });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.legal-modal-backdrop.open').forEach((m) => closeLegalModal(m.id));
+    }
+  });
+  if (window.location.hash === '#impressum') openLegalModal('impressumModal');
+  if (window.location.hash === '#datenschutz') openLegalModal('datenschutzModal');
+}
+
+// ─── 17. INITIALISIERUNG ────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initDSGVO();
   initFAQ();
+  initLegalModals();
 
   // Rechner-Listener
   const slider = document.getElementById('calcSlider1');
@@ -569,3 +621,4 @@ document.addEventListener('DOMContentLoaded', () => {
     initCharReveal();
   }
 });
+
