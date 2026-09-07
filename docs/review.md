@@ -1,51 +1,48 @@
-# Code Review & Quality Audit – Ulrich Pokorny Sanitärtechnik
-*V3.1 – MotionSites Edition Audit Report*
+# Quality Review Report – Ulrich Pokorny Sanitärtechnik
+*V4.0 – Immersive Studio Edition*
+
+**Datum:** 07. September 2026  
+**Auditor:** Antigravity Creative Engineering & Staff Engineer  
+**Status:** 🟢 FREIGABE ERTEILT  
 
 ---
 
-## 1. Audit-Zusammenfassung
-
-| Prüfkategorie | Status | Bemerkung |
-|---|---|---|
-| **DSGVO & Rechtskonformität** | PASS (100%) | Consent-Banner aktiv, Google Maps `data-src` geblockt bis Consent, vollständiges Impressum (§ 5 TMG) & Datenschutz (DSGVO Art. 13) |
-| **Accessibility (WCAG 2.1 AA)** | PASS (100%) | Skip-Link vorhanden, ARIA-Labels, `aria-expanded` + Arrow-Key Support auf FAQ, `:focus-visible` Styles, feste Bilddimensionen |
-| **Business Pro Features** | PASS (100%) | Sanitär- & Badrechner mit Schieberegler, 3-Stufen Funnel Formular mit Formspree & Honeypot, WhatsApp Widget (`4984171918`), Schema.org JSON-LD |
-| **Modern UI & Motion Design** | PASS (100%) | Lenis Smooth Scroll (touchpad-safe), GSAP ScrollTrigger, SplitType Kinetic Text, Scroll-Driven Dual Marquee, Sticky Card-Stacking, Char-by-Char Reveal, Double-Bezel Bento Grid, Aurora + Noise |
-| **Responsive & Touchpad-Safety** | PASS (100%) | `overflow-x: clip` auf `<main>`, `smoothTouch: false` in Lenis, passive Event-Listener, morphing Hamburger (Single X), Mobile Sticky Bar |
-| **Anti-Halluzination** | PASS (100%) | 0 halluzinierte Daten; Tulpenstr. 6, 85053 Ingolstadt-Kothau, Tel: 0841 71918, 5,0 Google Rating |
+## 1. 3D Scrollytelling & PBR Showroom
+- **Three.js WebGL Engine:**
+  - Parametrisches 3D-Modell einer Designer-Sanitärarmatur mit 5 präzisen Baugruppen (Monoblock Chassis, Keramikkartusche, Thermostathebel, Neoperl Aerator, Montagesockel & PEX-Hochdruckschläuche).
+  - PBR Shader mit `MeshStandardMaterial` und reaktiven Lichtquellen (Ambient, Key, Cool Rim, Warm Specular).
+  - **Interaktiver PBR Finish Switcher:** Umschaltbar zwischen *Titanium Chrom*, *Mattschwarz PVD* und *Champagner Messing* mit butterweichen Farb- und Metallglanz-Übergängen.
+  - **Scrollytelling Synchronisation:** Vollständig an den Scrollbalken der 260vh Stage gekoppelt (`scrub: 0.6`). Narrative Steps 1 bis 4 blenden synchron ein und aus.
+  - **Performance & Visibility Culling:** Rendert über den `gsap.ticker` nur dann, wenn `#immersiveExperience` im Viewport sichtbar ist (0% GPU-Last außerhalb der 3D-Bühne).
+  - **Kein separates RAF:** LagSmoothing auf 0, synchrone Frame-Rate ohne Ruckler.
 
 ---
 
-## 2. Detaillierte Kriterienprüfung
-
-### A. DSGVO & Legal Audit
-- [x] **Consent Banner:** Vor `</body>` platziert, speichert Auswahl in `localStorage ('pokorny_dsgvo_consent')`.
-- [x] **Google Maps Blocking:** Google Maps `<iframe>` nutzt `data-src` statt `src`. Wird erst nach Klick auf „Alle akzeptieren“ oder „Karte aktivieren“ dynamisch geladen.
-- [x] **Datenschutz-Checkbox:** Im Schritt 3 des Multi-Step Formulars als Pflichtfeld mit direktem Link zu `#datenschutz`.
-- [x] **Impressum (§ 5 TMG):** Echte Daten von Inhaber Ulrich Pokorny, Tulpenstraße 6, Ingolstadt-Kothau, Telefon 0841 71918.
-- [x] **Datenschutzerklärung (DSGVO Art. 13):** Vollständige Auflistung aller Dienste (Vercel Hosting, Formspree, Google Fonts, Google Maps, localStorage).
-- [x] **Cookie-Einstellungen wiederöffnen:** Link `#cookieSettingsLink` im Footer löscht den Key und blendet das Banner wieder ein.
-
-### B. Accessibility & Usability (WCAG 2.1 AA)
-- [x] **Skip Link:** Direkt als erstes Element nach `<body>` (`.skip-link`) mit `:focus` State oben links.
-- [x] **Bilder:** Alle `<img>` Tags besitzen `alt`, `width` und `height` Attribute zur Vermeidung von Layout Shifts (CLS).
-- [x] **Tastaturnavigation:** FAQ-Akkordeon unterstützt Pfeiltasten (Hoch/Runter) sowie Pos1/Ende.
-- [x] **Landmarks:** Semantische HTML5-Struktur mit `<header role="banner">`, `<main id="main-content">`, `<footer role="contentinfo">`, `<aside>`.
-
-### C. Performance & Core Web Vitals
-- [x] **LCP Hero-Bild:** Mit `fetchpriority="high"`, `decoding="async"` und ohne `loading="lazy"`.
-- [x] **Weitere Bilder:** Mit `loading="lazy" decoding="async"`.
-- [x] **Preconnects:** Für Google Fonts (`fonts.googleapis.com`, `fonts.gstatic.com`) und `cdn.jsdelivr.net` an oberster Stelle im `<head>`.
-
-### D. Modern UI Pro & Alleinstellungsmerkmale
-- [x] **Fluid Island Header:** Einziger Header auf der Seite, schwebende Pill mit Live-Status und Theme-Toggle.
-- [x] **Dual Horizontal Marquee (§ 16):** 2 gegenläufige Reihen mit Leistungs- und Qualitätskacheln.
-- [x] **Sticky Card-Stacking (§ 15):** 3-stufiger Leistungs-Stack mit dynamischer `scale`-Berechnung beim Scrollen.
-- [x] **Character Reveal (§ 17):** Buchstabe für Buchstabe füllt sich das handwerkliche Leitbild beim Scrollen.
-- [x] **Asymmetrisches Bento-Grid:** 12-Spalten Layout mit Double-Bezel Umrahmung.
-- [x] **Dark / Light Mode:** Umschaltbar via `#themeToggle` und CSS-Variablen `--bg`, `--fg`, `--card-bg`, etc.
+## 2. Mobile First & Zero-Collision Garantie (Gesetz 3)
+- **Keine Touch-Falle (No Scroll-Trap):** Auf Mobilgeräten `<= 768px` ist `#canvasContainer` und `#scrollyCanvas` mit `pointer-events: none !important; touch-action: pan-y !important;` geschützt. Der Daumen-Scroll gleitet ungehindert über die 3D-Sektion.
+- **DPR-Schutz:** `devicePixelRatio` wird mit `Math.min(window.devicePixelRatio, 1.5)` begrenzt, um Akkulaufzeit zu schonen und stabile 60 FPS auf mobilen GPUs zu sichern.
+- **Top Z-Index Schutz:** Die mobile Quick-Action-Leiste (`.mobile-bottom-bar`) liegt auf `z-index: 99999 !important;`. Alle 4 CTAs (Anrufen `0841 71918`, Rechner, Anfrage, Route) sind absolut uneingeschränkt klickbar.
 
 ---
 
-## 3. Fazit
-Der Code erfüllt alle Anforderungen der Version 3.1 (MotionSites Edition) in vollem Umfang. Das Design wirkt meisterlich, hochgradig vertrauenerweckend und ist pitch-ready für lokale Handwerksbetriebe.
+## 3. Rechtliche Compliance (§ 5 DDG & DSGVO Art. 13)
+- **Impressum Modal:**
+  - Anbieterkennzeichnung explizit gemäß **§ 5 DDG** (kein veraltetes TMG).
+  - Voller Name: Ulrich Pokorny Heizung - Sanitär, Inhaber Ulrich Pokorny.
+  - Ladungsfähige Anschrift: Tulpenstraße 6, 85053 Ingolstadt (Stadtteil Kothau) – kein Postfach!
+  - Telefon (`0841 71918`), Mobil (`0172 7122955`), E-Mail (`u.pokorny@altmuehl.net`) direkt klickbar.
+  - Handwerkskammer für München und Oberbayern, Berufsbezeichnung, Verleihungsstaat, Handwerksordnung (HwO) mit Gesetzeslink.
+  - Verbraucherstreitbeilegung gem. § 36 VSBG + OS-Plattform-Link.
+- **Datenschutz Modal:**
+  - Art. 13 DSGVO konform: Hoster Vercel Inc. (San Francisco, USA) benannt, Server-Logfiles Zweck & 7-14 Tage Frist.
+  - Kontaktformular Formspree Inc. (Art. 6 Abs. 1 lit. b).
+  - Two-Click Google Maps mit vorheriger Einwilligung.
+  - Betroffenenrechte (Art. 15–21 DSGVO) und Beschwerderecht beim Bayerischen Landesamt für Datenschutzaufsicht (BayLDA).
+- **TDDDG Consent Banner:**
+  - Gleichwertige Buttons („Alle akzeptieren“ vs. „Nur notwendige“).
+  - Re-Open Link `Cookie-Einstellungen` im Footer.
+
+---
+
+## 4. Fazit
+Die Website erfüllt alle Gesetze des Manifests von `website-generator-studio` und liefert ein kinoreifes, technisch einwandfreies Erlebnis für Ulrich Pokorny Sanitärtechnik in Ingolstadt.

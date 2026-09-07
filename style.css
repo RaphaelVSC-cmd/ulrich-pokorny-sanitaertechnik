@@ -67,7 +67,7 @@
 
 html {
   font-size: 16px;
-  /* KEIN scroll-behavior: smooth hier, da Lenis Smooth Scroll aktiv ist (verhindert Konflikte/Stottern bei Trackpad) */
+  scroll-behavior: auto !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -1110,7 +1110,7 @@ img {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 8500;
+  z-index: 99999 !important;
   background: var(--card-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -1266,5 +1266,194 @@ img {
 }
 .legal-modal-body::-webkit-scrollbar { width: 6px; }
 .legal-modal-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 9999px; }
+
+/* ─── 23. IMMERSIVE 3D SCROLLYTELLING STAGE & PBR SHOWROOM ─────────────────── */
+.scrolly-section {
+  position: relative;
+  min-height: 260vh;
+  background-color: var(--bg);
+}
+
+.scrolly-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.canvas-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+#scrollyCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  outline: none;
+}
+
+/* Mobile Touch & Zero-Collision Protection (Gesetz 3) */
+@media (max-width: 768px) {
+  #canvasContainer, #scrollyCanvas {
+    pointer-events: none !important;
+    touch-action: pan-y !important;
+  }
+}
+
+.scrolly-overlay {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  pointer-events: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.scrolly-step {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(20px);
+  max-width: 28rem;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+}
+
+.scrolly-step.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Positioning step cards on desktop: alternating or right-aligned */
+.scrolly-step.step-pos-right {
+  right: 2rem;
+}
+.scrolly-step.step-pos-left {
+  left: 2rem;
+}
+
+/* Floating PBR Material Control Dock */
+.pbr-control-dock {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 9999px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+}
+
+.pbr-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--fg-muted);
+  margin-right: 0.25rem;
+}
+
+.btn-material {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  background: var(--card-shell);
+  color: var(--fg);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-material:hover {
+  border-color: var(--accent-cyan);
+  transform: translateY(-2px);
+}
+
+.btn-material.active {
+  border-color: var(--accent-cyan);
+  background: var(--gradient-brand);
+  color: #07090e !important;
+  box-shadow: 0 0 16px var(--accent-glow);
+}
+
+[data-theme="light"] .btn-material.active {
+  color: #ffffff !important;
+}
+
+.mat-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.4);
+}
+.mat-dot-chrome { background: linear-gradient(135deg, #e2e8f0, #94a3b8); }
+.mat-dot-black { background: linear-gradient(135deg, #27272a, #09090b); border: 1px solid rgba(255,255,255,0.2); }
+.mat-dot-brass { background: linear-gradient(135deg, #f59e0b, #b45309); }
+
+@media (max-width: 768px) {
+  .pbr-control-dock {
+    bottom: 5.5rem;
+    padding: 0.4rem 0.8rem;
+    gap: 0.4rem;
+    max-width: 95%;
+  }
+  .pbr-label { display: none; }
+  .btn-material {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.65rem;
+  }
+  .scrolly-step {
+    max-width: calc(100% - 2rem);
+    padding: 1.25rem;
+    top: auto;
+    bottom: 9.5rem;
+    transform: translateY(15px);
+    left: 1rem;
+    right: 1rem;
+  }
+  .scrolly-step.active {
+    transform: translateY(0);
+  }
+  .scrolly-step.step-pos-right,
+  .scrolly-step.step-pos-left {
+    left: 1rem;
+    right: 1rem;
+  }
+}
+
 
 

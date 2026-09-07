@@ -1,70 +1,59 @@
 # Entwickler- & Kundenanleitung – Ulrich Pokorny Sanitärtechnik
-*V3.1 – MotionSites Edition*
+*V4.0 – Immersive 3D Studio Edition*
 
 Diese Dokumentation erklärt alle Schritte zur Personalisierung, Einrichtung externer Dienste und produktiven Veröffentlichung der Website.
 
 ---
 
-## 1. Formspree Kontaktformular aktivieren
+## 1. 3D Scrollytelling & PBR-Showroom Anpassung
+- **Three.js Baugruppen:** Das 3D-Modell in `app.js` (`initThreeScrollytelling`) besteht aus 5 modularen Baugruppen:
+  1. `partBody`: Armaturenkörper & L-Auslauf
+  2. `partCartridge`: Präzisions-Keramikkartusche
+  3. `partHandle`: Einhebel-Thermostatmischer
+  4. `partAerator`: Neoperl Strahlregler & Kalkfilter
+  5. `partBasePipes`: Montagesockel & PEX-Hochdruckschläuche
+- **PBR Finishes:** Nutzer können im Frontend live zwischen *Titanium Chrom*, *Mattschwarz PVD* und *Champagner Messing* wählen. Eigene Farben oder Texturen können in `pbrPresets` in `app.js` definiert werden.
+- **Eigene CAD / GLTF Modelle:** Falls ein 3D-Scan oder CAD-Modell des Kunden vorliegt, kann dieses über den `THREE.GLTFLoader` als `.glb`-Datei direkt in die Szene geladen werden.
+
+---
+
+## 2. Formspree Kontaktformular aktivieren
 1. Kostenlosen Account auf [formspree.io](https://formspree.io) anlegen.
-2. Ein neues Formular erstellen (z.B. Name: `Ulrich Pokorny Anfragen`).
+2. Neues Formular anlegen (Name: `Ulrich Pokorny Anfragen`).
 3. Die generierte Formspree-ID kopieren (z.B. `xpzgkyle`).
-4. In `index.html` (Zeile ~410) den Platzhalter ersetzen:
+4. In `index.html` den Form-Action-Pfad aktualisieren:
    ```html
-   <form id="multistepForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+   <form id="multistepForm" action="https://formspree.io/f/DEINE_ID" method="POST" novalidate>
    ```
-5. Nach dem ersten Absenden einer Test-Anfrage die Bestätigungs-E-Mail von Formspree verifizieren.
+5. Testnachricht absenden und Formspree verifizieren.
 
 ---
 
-## 2. Echte Kundenfotos einbinden
-Aktuell sind fotorealistische, pitch-ready Beispielbilder hinterlegt (mit Badge `Beispielbild`).
-- **Hero-Bad:** Bild in `assets/images/hero_bathroom.jpg` ersetzen.
-- **Armaturen & Duschdetails:** Bilder in `assets/images/` ersetzen.
-- **Kennzeichnung entfernen:** Sobald echte Werkstatt-/Projektfotos des Inhabers vorliegen, die Badges `<span class="img-badge">Beispielbild</span>` in `index.html` entfernen.
+## 3. Echte Meisterfotos einbinden
+Aktuell sind hochauflösende, professionelle Demo-Bilder hinterlegt (mit Badge `Beispielbild`):
+- **Hero-Badezimmer:** `assets/images/hero_bathroom.jpg`
+- **Armaturen & Handwerksdetails:** `assets/images/`
+- Sobald reale Fotos von Projekten in Ingolstadt vorliegen, einfach austauschen und die `<span class="img-badge">Beispielbild</span>` Tags in `index.html` entfernen.
 
 ---
 
-## 3. Online-Terminbuchung einrichten (Cal.com / Calendly)
-1. Kostenlosen Account auf [cal.com](https://cal.com) erstellen.
-2. Einen Ereignistyp anlegen (z.B. `Erstberatung Badsanierung (30 Min.)`).
-3. In `index.html` die Sektion `#termin` anpassen und den Cal.com Embed-Code einfügen:
-   ```html
-   <iframe src="https://cal.com/ulrich-pokorny/beratung?embed=true" width="100%" height="600" frameborder="0"></iframe>
-   ```
-
----
-
-## 4. CRM- & Slack-Automatisierung
-- **HubSpot / Pipedrive Anbindung:** In Formspree unter *Settings → Webhooks* einen Webhook zu Make.com oder Zapier hinterlegen. Neue Anfragen werden automatisch als Leads in das CRM eingepflegt.
-- **Instant SMS / WhatsApp / Slack Benachrichtigung:** Über Zapier oder Make.com kann bei jedem Formulareingang sofort eine Benachrichtigung an das Smartphone von Herrn Pokorny gesendet werden.
-
----
-
-## 5. Rechtliche Angaben vervollständigen
-- **Umsatzsteuer-ID:** Falls vorhanden, im Impressum (`#impressum`) die Zeile einkommentieren:
+## 4. CRM-, WhatsApp- & Kalender-Anbindung
+- **Online-Terminbuchung (Cal.com / Calendly):**
+  In `index.html` bei Bedarf einen Cal.com Iframe einbinden:
   ```html
-  <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE...</p>
+  <iframe src="https://cal.com/ulrich-pokorny/beratung?embed=true" width="100%" height="600" frameborder="0"></iframe>
   ```
-- **Zuständige Kammer:** Handwerkskammer für München und Oberbayern eintragen.
+- **Automatischer WhatsApp-Lead:**
+  Das Floating Widget leitet über `https://wa.me/491727122955` direkt in den WhatsApp-Chat von Herrn Pokorny weiter.
+- **HubSpot / Pipedrive:**
+  Formspree Webhooks erlauben die automatische Lead-Übertragung in beliebige CRMs via Zapier oder Make.com.
 
 ---
 
-## 6. Hosting & Deployment (Vercel / Netlify)
-### Deployment auf Vercel:
-1. [vercel.com](https://vercel.com) aufrufen und mit GitHub/GitLab verknüpfen.
-2. Repository importieren oder via CLI:
-   ```bash
-   npm i -g vercel
-   vercel --prod
-   ```
-3. Die benutzerdefinierte Domain (z.B. `ulrich-pokorny-sanitaertechnik.de`) in den Vercel Project Settings hinzufügen.
-
----
-
-## 7. Performance-Optimierung für den Live-Betrieb
-1. **Google Fonts lokal hosten:**
-   - Fonts auf [gwfh.mranftl.com](https://gwfh.mranftl.com/fonts) herunterladen.
-   - WOFF2-Dateien in `assets/fonts/` ablegen und per `@font-face` in `style.css` einbinden.
-2. **Bilder als WebP / AVIF:**
-   - Bilder mit [Squoosh](https://squoosh.app) zu `.webp` komprimieren (spart ca. 70% Dateigröße).
+## 5. Hosting & Deployment (Vercel)
+### Deployment via Vercel CLI:
+```bash
+npm i -g vercel
+vercel --prod
+```
+In den Vercel Settings kann die eigene Domain `ulrich-pokorny-sanitaertechnik.de` aufgeschaltet werden.

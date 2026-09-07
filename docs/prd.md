@@ -1,92 +1,75 @@
 # Product Requirements Document (PRD) – Ulrich Pokorny Sanitärtechnik
-*V3.1 – MotionSites Edition*
+*V4.0 – Immersive 3D Studio Edition (website-generator-studio)*
 
 ---
 
-## 1. Unternehmens- & Projektdaten
-- **Unternehmen:** Ulrich Pokorny
-- **Inhaber:** Ulrich Pokorny
-- **Branche:** Handwerk / Sanitärtechnik & Wasserinstallation
-- **Standort:** Tulpenstraße 6, 85053 Ingolstadt-Kothau
-- **Telefon:** 0841 71918 (international: `+49 841 71918`, WhatsApp: `4984171918`)
-- **Google Maps Rating:** 5,0 ⭐ (2 Rezensionen)
-  - Rezension 1: „Bester Mann!“ (vor 5 Monaten)
-  - Rezension 2: Florian Schneider (Local Guide, 46 Rezensionen, vor 1 Jahr)
-- **Google Maps URL:** `https://www.google.com/maps/search/?api=1&query=Ulrich%20Pokorny&query_place_id=ChIJRzS2nBT_nkcR8rurlmJJPqc`
-- **Web-Status:** Keine Website vorhanden (`website: null`)
-- **Sales Reason / Lead-Fokus:** Übungs-Lead. Fokus: Schnelle Direktwahl, Vertrauensaufbau durch lokale Verwurzelung in Ingolstadt-Kothau und 5,0-Sterne-Qualität, interaktiver Sanitärrechner und unkomplizierte Kontaktaufnahme.
+## 1. Executive Summary & Unternehmens-DNA
+- **Unternehmen:** Ulrich Pokorny Heizung - Sanitär
+- **Inhaber:** Ulrich Pokorny (Meisterbetrieb des Handwerks)
+- **Standort:** Tulpenstraße 6, 85053 Ingolstadt (Stadtteil Kothau)
+- **Telefon:** 0841 71918 (Festnetz) | 0172 7122955 (Mobil)
+- **E-Mail:** u.pokorny@altmuehl.net
+- **Google Maps Rating:** 5,0 ⭐ (100% Top-Bewertungen, „Bester Mann!“)
+- **Positionierung:** High-End Sanitärhandwerk, meisterhafte Bäder, präzise Wasserinstallation und zuverlässiger Reparaturdienst in Ingolstadt und Umgebung.
+- **Web-Status:** Bislang keine eigene Website vorhanden. Die neue Studio-Website setzt einen uneinholbaren regionalen Maßstab auf Awwwards- und Apple-Niveau.
 
 ---
 
-## 2. Zielgruppen-Analyse
-1. **Haus- & Wohnungseigentümer in Ingolstadt & Umgebung:**
-   - Planen Badsanierung, Modernisierung von Sanitäranlagen oder Erneuerung von Rohrleitungen.
-   - Suchen einen zuverlässigen, inhabergeführten Fachbetrieb mit persönlicher Betreuung und erstklassiger Ausführung.
-2. **Akut- & Reparatur-Kunden (Rohrbruch, defekte Armaturen, Spülkasten, Leckagen):**
-   - Benötigen sofortige Hilfe ohne Warteschleifen → prominenter Click-to-Call Button im Header, Hero und in der mobilen Sticky Bar.
-3. **Bauherren & Sanierer:**
-   - Benötigen verlässliche Schätzwerte für Sanitärinstallationen (Abdeckung über den interaktiven Sanitärrechner).
+## 2. Das Immersive 3D Scrollytelling-Konzept
+
+### 3D Mechanismus: Exploded View & PBR Material Showroom
+- **Zentrales 3D-Objekt:** Eine hochpräzise Designer-Sanitärarmatur (Solid Monoblock Brass Body) mit komplettem Innenleben.
+- **Scroll-Phasen (250vh Sticky Stage):**
+  - **Phase 1 (Scroll 0% - 25%):** Die geschlossene Armatur rotiert im 3D-Raum mit realistischen Lichtreflexen und PBR-Materialität.
+  - **Phase 2 (Scroll 25% - 50%):** *Exploded View Initiation:* Der äußere Gehäusemantel gleitet nach oben weg; die Präzisions-Keramik-Kartusche mit Diamantschliff-Dichtungen wird sichtbar. Text-Overlay 1 blendet ein: *„01 // Präzisions-Keramikkern – Tropffreie Langlebigkeit“*.
+  - **Phase 3 (Scroll 50% - 75%):** Thermostat-Mischereinheit und Neoperl-Kalkschutz-Strahlregler fächern sich horizontal auseinander. Text-Overlay 2 blendet ein: *„02 // Thermostatische Präzision & Verbrühschutz“*.
+  - **Phase 4 (Scroll 75% - 100%):** Anschlusstechnik (PEX-Hochdruckschläuche & Befestigungssockel) fächert sich auf. Text-Overlay 3 blendet ein: *„03 // 100% Trinkwasser-Hygiene nach DIN EN 1717“*.
+- **Interaktiver PBR Material-Showroom:**
+  - Nutzer können über 3 interaktive Material-Chips die PBR-Oberflächenbeschaffenheit live umschalten:
+    1. *Gebürstetes Platin / Edelstahl* (Roughness: 0.25, Metalness: 0.95)
+    2. *Mattschwarz PVD* (Roughness: 0.45, Metalness: 0.15)
+    3. *Champagner Messing* (Roughness: 0.2, Metalness: 0.9, Farbstich Gold)
 
 ---
 
-## 3. Conversion-Ziele & CTAs
-- **Primärer Call-to-Action (Haupt-CTA):** `Jetzt anrufen: 0841 71918` (Click-to-Call)
-- **Sekundäre CTAs:**
-  - `Sanitär-Kosten schätzen` (Interaktiver Rechner)
-  - `Anfrage in 3 Schritten senden` (Multi-Step Funnel)
-  - `WhatsApp Chat starten` (Direktkontakt über Floating Button)
-  - `Route nach Ingolstadt-Kothau planen` (Google Maps Link)
+## 3. Navigations-Architektur: Split Status Navigation
+- **Header-Typ:** Einzeiliger Unified Header mit integrierter Split Status Navigation (kein doppelter Sticky-Header!).
+- **Links:** Logo-Wortmarke „ULRICH POKORNY // SANITÄRTECHNIK INGOLSTADT“.
+- **Mitte:** Elegante Nav-Links (3D-Erlebnis, Leistungen, Rechner, Rezensionen, Kontakt).
+- **Rechts:** Live-Status-Badge (🟢 „Jetzt geöffnet in Kothau“) + Direktwahl-Button `0841 71918`.
 
 ---
 
-## 4. USPs & Wertversprechen (NUR aus echten Daten)
-- **100% Top-Bewertungen:** Perfekte 5,0-Sterne Kundenzufriedenheit auf Google („Bester Mann!“).
-- **Lokaler Meisterbetrieb in Ingolstadt-Kothau:** Direkte Nähe (Tulpenstraße 6), schnelle Einsatzzeiten und persönliche Betreuung durch den Inhaber Ulrich Pokorny.
-- **Spezialisierung auf Sanitärtechnik:** Umfassende Fachkompetenz von Armaturentausch über Rohrleitungsinstallation bis zur kompletten Badsanierung.
+## 4. Farbklima & Typografie-Persona (Anti-Einheitsbrei)
+- **Farbklima:** *Clean Luxury Hydro PBR*
+  - Background Dark: `#070b14` (Deep Hydro Slate)
+  - Card & Surface: `#0d1424` mit sanftem Glas-Glanz `rgba(255,255,255,0.06)`
+  - Primary Accent: `#0ea5e9` (Hydraulisches Eisblau)
+  - Secondary Accent: `#f59e0b` (Warmes Messing / Gold)
+  - Text Primary: `#f8fafc` (100% Kontrast)
+  - Text Secondary: `#94a3b8` (WCAG 2.1 AA konform > 4.5:1)
+- **Typografie:**
+  - Headlines: **Outfit** & **Plus Jakarta Sans** (geometrisch, präzise, meisterhaft)
+  - Body: **Inter** (optimale Lesbarkeit bei allen Schriftgrößen)
 
 ---
 
-## 5. Fakten-Check & Anti-Halluzinations-Matrix
-| Information | Status | Umsetzung auf der Website |
-|---|---|---|
-| Firmenname | Echter Fakt | „Ulrich Pokorny Sanitärtechnik“ |
-| Adresse | Echter Fakt | Tulpenstraße 6, 85053 Ingolstadt-Kothau |
-| Telefonnummer | Echter Fakt | 0841 71918 / +49 841 71918 |
-| Google Bewertung | Echter Fakt | 5,0 Sterne (2 Rezensionen) |
-| Kategorie | Echter Fakt | Sanitärtechnik |
-| Einzelpreise / Stundensätze | Nicht in Rohdaten | Keine erfundenen Festpreise; stattdessen unverbindlicher Richtwert-Rechner mit klarem Disclaimer |
-| Mitarbeiterzahlen / Team | Nicht in Rohdaten | Keine erfundenen Team-Profile; Fokus auf persönliche Betreuung durch Meisterhand |
-| USt-ID / Kammer-Nr. | Nicht in Rohdaten | `<!-- PLATZHALTER: USt-ID des Kunden eintragen -->` im Impressum |
-| Öffnungszeiten | Nicht in Rohdaten | Montag–Freitag 07:30–17:30 Uhr (als typischer Handwerker-Standard im Schema.org & Hinweis im Footer) |
+## 5. Sektions-Architektur (Reihenfolge nach der stärksten Waffe)
+1. **Unified Navigation:** Split Status Header
+2. **Hero Stage:** Social Proof (5.0 ⭐ „Bester Mann!“), Kinetic Typography, Dual-CTAs (Anrufen & 3D Tour)
+3. **3D Scrollytelling Stage:** Exploded View & PBR Material Showroom (Three.js WebGL)
+4. **Kernkompetenzen & Meisterleistungen:** Badarchitektur, Rohrnetz-Sanierung, Notdienst & Reparatur
+5. **Interaktiver Sanitär- & Badsanierungs-Kostenrechner:** m²-Schieberegler + Ausstattungsstufe mit Sofort-Richtwert
+6. **Social Proof & Kundenstimmen:** Echte Google-Rezensionen im Wortlaut
+7. **Multi-Step Funnel Kontaktformular:** 3-stufiger Anfrage-Assistent mit Formspree & Spam-Schutz
+8. **Lokale Verankerung & Anfahrt:** Ingolstadt-Kothau mit Two-Click Google Maps (data-src)
+9. **FAQ & Meister-Ratgeber:** Akkordeon mit vollständiger Tastaturnavigation
+10. **Rechtskonformer Footer:** § 5 DDG Impressum, DSGVO Art. 13 Datenschutz-Modals, Cookie-Einstellungen Link
+11. **DSGVO Consent Banner, Floating WhatsApp Widget & Mobile Sticky Bar (Z-Index 99999)**
 
 ---
 
-## 6. Architektur- & Design-Entscheidungen (Begründung)
-
-### Gewählter Design-Vibe: Soft Structuralism & Ethereal Glass
-- **Begründung:** Passend zur Branche Wasser- & Sanitärtechnik verbinden wir ein tiefes, technisches Dunkelblau (`#07090e`) mit aquamarinen und eisblauen Aurora-Glows, präzisen Double-Bezel Glas-Kacheln und feiner Typografie. Das erzeugt sofort den Eindruck von Sauberkeit, Frische und Premium-Handwerkskunst.
-
-### Gewählte Sektions-Variante: Variante A (angereichert mit MotionSites-Elementen)
-- **Struktur:**
-  1. Header: Fluid Island Navbar mit Status-Badge
-  2. Hero: Aurora Glow, Noise Texture, Kinetic SplitType, Social Proof 5.0
-  3. USP Bento-Grid: 12-Spalten Layout mit Double-Bezel Kacheln
-  4. Alleinstellungsmerkmal 1: Dual-Direction Scroll Marquee (§ 16) für Sanitärleistungen
-  5. Interaktiver Sanitär- & Badrechner (§ 6)
-  6. Alleinstellungsmerkmal 2: Sticky Card-Stacking (§ 15) für Kernkompetenzen
-  7. Alleinstellungsmerkmal 3: Character-by-Character Text Reveal (§ 17) für das Qualitätsversprechen
-  8. Social Proof: Echte Google-Rezensionen
-  9. Multi-Step Funnel Kontaktformular (§ 5, 3 Schritte)
-  10. Online-Terminbuchung UI-Dummy (§ 11)
-  11. Standort & DSGVO Google Maps (§ 2, data-src)
-  12. FAQ Akkordeon mit Tastatursteuerung (§ 3)
-  13. Footer mit Cookie-Einstellungen, Impressum (§ 9) & Datenschutz (§ 10)
-  14. DSGVO Consent Banner vor `</body>` & Floating WhatsApp Button
-
-### Gewähltes Header-Pattern: Fluid Island Navbar (Variante A)
-- **Begründung:** Die schwebende Pill-Navbar verbindet Eleganz mit Kompaktheit. Kein Doppelheader möglich. Der Status „☎ Fachbetrieb Ingolstadt“ ist direkt in der Pill integriert.
-
-### Gewählte Alleinstellungsmerkmale (3 aus der Rotation):
-1. **Scroll-Driven Horizontal Dual Marquee (§ 16):** Schnelle, visuelle Vermittlung von Handwerks-Attributen und Sanitärleistungen beim Scrollen.
-2. **Sticky Card-Stacking (§ 15):** 3-stufiger Leistungs-Stack (Badsanierung, Wasser- & Abwassersysteme, Reparatur- & Notfalldienst), der sich beim Weiterscrollen sanft stapelt.
-3. **Character-by-Character Text Reveal (§ 17):** Cineastisches Einblenden des handwerklichen Qualitätsversprechens Buchstabe für Buchstabe.
+## 6. Eiserne Mobile & Zero-Collision Vorgaben
+- **Canvas Pointer Events:** Auf Bildschirmen `<= 768px` ist `pointer-events: none` auf dem 3D-Canvas aktiv; Touch-Scroll läuft ungehindert ohne Trap.
+- **DPR-Begrenzung:** `devicePixelRatio = Math.min(window.devicePixelRatio, 1.5)` schont Akku und garantiert 60 FPS.
+- **Mobile Bottom Bar:** Fixierte Leiste am unteren Bildschirmrand (`z-index: 99999`) mit direktem Anruf- & WhatsApp-Zugriff.
