@@ -38,9 +38,6 @@
   <!-- Google Fonts: Outfit, Plus Jakarta Sans, Inter, Playfair Display -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Three.js (WebGL 3D Engine for Scrollytelling) -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-
   <!-- Lenis Smooth Scroll -->
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
@@ -171,10 +168,6 @@
 
     <!-- Desktop Navigation -->
     <nav class="nav-links hidden lg:flex items-center gap-6" aria-label="Hauptnavigation">
-      <a href="#experience" class="anim-fade-down stagger-2 text-cyan-400 font-semibold flex items-center gap-1.5">
-        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-        <span>3D-Erlebnis</span>
-      </a>
       <a href="#leistungen" class="anim-fade-down stagger-2">Leistungen</a>
       <a href="#rechner" class="anim-fade-down stagger-3">Kostenrechner</a>
       <a href="#vorteile" class="anim-fade-down stagger-3">Über uns</a>
@@ -205,7 +198,6 @@
   <!-- ─── MOBILE MENU OVERLAY (Single-X Morphing) ────────────────────────── -->
   <div class="mobile-overlay" id="mobileMenu" aria-hidden="true" role="dialog" aria-label="Mobiles Navigationsmenü">
     <nav class="mobile-nav">
-      <a href="#experience" class="text-cyan-400 font-bold">✨ 3D-Explosionsansicht</a>
       <a href="#leistungen">Leistungen</a>
       <a href="#rechner">Kostenrechner</a>
       <a href="#vorteile">Meisterbetrieb</a>
@@ -259,8 +251,8 @@
             <a href="tel:+4984171918" class="btn-cta text-sm sm:text-base px-6 py-3.5 sm:px-9 sm:py-4 w-full sm:w-auto" data-magnetic aria-label="Direkt anrufen: 0841 71918">
               <span>📞 Jetzt anrufen: 0841 71918</span>
             </a>
-            <a href="#experience" class="btn-secondary text-sm sm:text-base px-6 py-3.5 sm:px-8 sm:py-4 w-full sm:w-auto" data-magnetic aria-label="Zur 3D-Explosionsansicht springen">
-              <span>3D-Technik erleben ↓</span>
+            <a href="#leistungen" class="btn-secondary text-sm sm:text-base px-6 py-3.5 sm:px-8 sm:py-4 w-full sm:w-auto" data-magnetic aria-label="Zu den Meisterleistungen springen">
+              <span>Leistungen entdecken ↓</span>
             </a>
           </div>
 
@@ -281,91 +273,7 @@
       </div>
     </section>
 
-    <!-- ═══ 3D IMMERSIVE SCROLLYTELLING STAGE (Exploded View & PBR Showroom) ═══ -->
-    <section class="scrolly-section" id="experience" aria-label="3D Scrollytelling Armaturen-Explosionsansicht">
-      <div class="scrolly-sticky" id="immersiveExperience">
-        <!-- 3D WebGL Canvas (pointer-events-none auf Mobile via CSS!) -->
-        <div class="canvas-container" id="canvasContainer">
-          <canvas id="scrollyCanvas" aria-label="Interaktives 3D-Modell einer Sanitärarmatur mit meisterhafter Explosionsansicht"></canvas>
-        </div>
 
-        <!-- Floating PBR Material Switcher Dock -->
-        <div class="pbr-control-dock" role="group" aria-label="PBR Material-Showroom">
-          <span class="pbr-label">PBR Finish:</span>
-          <button type="button" class="btn-material active" data-material="chrome" aria-label="PBR Finish: Titanium Chrom">
-            <span class="mat-dot mat-dot-chrome" aria-hidden="true"></span>
-            <span>Titanium Chrom</span>
-          </button>
-          <button type="button" class="btn-material" data-material="black" aria-label="PBR Finish: Mattschwarz PVD">
-            <span class="mat-dot mat-dot-black" aria-hidden="true"></span>
-            <span>Mattschwarz PVD</span>
-          </button>
-          <button type="button" class="btn-material" data-material="brass" aria-label="PBR Finish: Champagner Messing">
-            <span class="mat-dot mat-dot-brass" aria-hidden="true"></span>
-            <span>Champagner Messing</span>
-          </button>
-        </div>
-
-        <!-- Scrollytelling Narrative Steps (Synchronized with 3D Exploded View) -->
-        <div class="scrolly-overlay">
-          <!-- Step 1: Initial Overview -->
-          <div class="scrolly-step step-1 step-pos-right active" id="scrollyStep1">
-            <span class="eyebrow mb-2">01 // Ingenieurs-Handwerk</span>
-            <h2 class="text-2xl sm:text-3xl font-bold text-[var(--fg)] mt-1 mb-3">
-              Präzisions-Monoblock & PBR-Veredelung
-            </h2>
-            <p class="text-sm sm:text-base text-[var(--fg-muted)] leading-relaxed mb-4">
-              Gefertigt aus massivem, entzinkungsbeständigem Qualitätsmessing. Höchste Druckfestigkeit und makellose Oberflächenbeschaffenheit für Jahrzehnte im täglichen Einsatz.
-            </p>
-            <div class="text-xs font-semibold text-cyan-400 flex items-center gap-1.5">
-              <span>↓ Weiter scrollen für Explosionsansicht</span>
-            </div>
-          </div>
-
-          <!-- Step 2: Ceramic Cartridge -->
-          <div class="scrolly-step step-2 step-pos-left" id="scrollyStep2">
-            <span class="eyebrow mb-2">02 // Das Herzstück</span>
-            <h2 class="text-2xl sm:text-3xl font-bold text-[var(--fg)] mt-1 mb-3">
-              Diamantgeschliffene Keramikkartusche
-            </h2>
-            <p class="text-sm sm:text-base text-[var(--fg-muted)] leading-relaxed mb-4">
-              Hochreine Keramik-Dichtscheiben gleiten im Vakuum-Spezialschmiermittel. 100% tropffreie Dichtigkeit, mikrometergenaue Durchflussdosierung und spielend leichte Einhandbedienung.
-            </p>
-            <div class="inline-flex items-center gap-2 text-xs px-2.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">
-              <span>✓ Wartungsfrei & tropfsicher</span>
-            </div>
-          </div>
-
-          <!-- Step 3: Thermostat & Aerator -->
-          <div class="scrolly-step step-3 step-pos-right" id="scrollyStep3">
-            <span class="eyebrow mb-2">03 // Komfort & Schutz</span>
-            <h2 class="text-2xl sm:text-3xl font-bold text-[var(--fg)] mt-1 mb-3">
-              Thermostatischer Verbrühschutz
-            </h2>
-            <p class="text-sm sm:text-base text-[var(--fg-muted)] leading-relaxed mb-4">
-              Reaktionsschnelle Thermoelemente gleichen Druckschwankungen in Millisekunden aus. Der Neoperl-Kalkschutz-Strahlregler sorgt für samtweichen Wasserstrahl bei bis zu 40% Wasserersparnis.
-            </p>
-            <div class="inline-flex items-center gap-2 text-xs px-2.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400">
-              <span>✓ Sicherheitsstopp bei 38°C</span>
-            </div>
-          </div>
-
-          <!-- Step 4: Installation & Hygiene -->
-          <div class="scrolly-step step-4 step-pos-left" id="scrollyStep4">
-            <span class="eyebrow mb-2">04 // Meistermontage</span>
-            <h2 class="text-2xl sm:text-3xl font-bold text-[var(--fg)] mt-1 mb-3">
-              100% Trinkwasser-Hygiene (DIN EN 1717)
-            </h2>
-            <p class="text-sm sm:text-base text-[var(--fg-muted)] leading-relaxed mb-4">
-              Geflochtene PEX-Stahlflexschläuche verhindern mikrobiologische Kontamination. Fachgerecht und sauber montiert vor Ort in Ingolstadt durch Meister Ulrich Pokorny.
-            </p>
-            <a href="tel:+4984171918" class="btn-cta text-xs sm:text-sm px-4 py-2.5 inline-flex items-center gap-2" data-magnetic aria-label="Jetzt Meisterbetrieb anrufen: 0841 71918">
-              <span>📞 Jetzt beraten lassen: 0841 71918</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- ═══ USP BENTO-GRID SECTION ═══ -->
     <section id="vorteile" class="py-28 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto" aria-labelledby="usp-heading">
