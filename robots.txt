@@ -1,4 +1,2 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://ulrich-pokorny-sanitaertechnik.de/sitemap.xml
+Disallow: /
